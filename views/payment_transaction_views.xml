@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_transaction_form" model="ir.ui.view">
+        <field name="name">payment.transaction.form.inherit.oo.mercado.pago.website</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.payment_transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='provider_reference']" position="after">
+                <field
+                    name="mercado_pago_installments"
+                    invisible="provider_code != 'mercado_pago' or not mercado_pago_installments"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="payment_transaction_list" model="ir.ui.view">
+        <field name="name">payment.transaction.list.inherit.oo.mercado.pago.website</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.payment_transaction_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount']" position="after">
+                <field name="mercado_pago_installments" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

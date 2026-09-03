@@ -15,7 +15,7 @@ Mercado Pago Website Installments
 |badge1| |badge2| |badge3|
 
 Enable installment payments (cuotas) for Mercado Pago Checkout Pro on
-Odoo 17 website and payment links. The native ``payment_mercado_pago``
+Odoo 18 website and payment links. The native ``payment_mercado_pago``
 module forces a single installment; this addon raises that cap and lets
 the customer choose the plan on Mercado Pago.
 

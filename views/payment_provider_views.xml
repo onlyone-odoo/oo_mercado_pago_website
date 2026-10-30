@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='mercado_pago_access_token']" position="after">
                 <field name="mercado_pago_max_installments"/>
+                <field name="mercado_pago_require_account"/>
             </xpath>
         </field>
     </record>

@@ -16,6 +16,14 @@ class PaymentProvider(models.Model):
         "in Odoo.",
         default=12,
     )
+    mercado_pago_require_account = fields.Boolean(
+        string="Restrict to Mercado Pago Accounts",
+        help="When enabled, Checkout Pro only accepts buyers logged in to "
+        "Mercado Pago. Guest checkout, cash and bank transfer are hidden. "
+        "Saved cards, account money and the installment cap remain "
+        "available. Leave it disabled to keep the current behavior.",
+        default=False,
+    )
 
     @api.constrains("mercado_pago_max_installments", "code")
     def _check_mercado_pago_max_installments(self):

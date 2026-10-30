@@ -17,7 +17,8 @@ Mercado Pago Website Installments
 Enable installment payments (cuotas) for Mercado Pago Checkout Pro on
 Odoo 17 website and payment links. The native ``payment_mercado_pago``
 module forces a single installment; this addon raises that cap and lets
-the customer choose the plan on Mercado Pago.
+the customer choose the plan on Mercado Pago. Optionally, Checkout Pro
+can be limited to buyers logged in to a Mercado Pago account.
 
 **Table of contents**
 
@@ -28,12 +29,19 @@ Configuration
 =============
 
 1. Install **Payment Provider: Mercado Pago** and this module.
-2. Go to *Invoicing > Configuration > Payment Providers > Mercado Pago*.
+2. Go to *Invoicing > Configuration > Payment Providers > Mercado Pago*
+   and open the *Credentials* tab.
 3. Set **Maximum Installments** (default 12). This is the ceiling sent
    in the Checkout Pro preference; Mercado Pago still filters plans by
    card, issuer and amount.
-4. Use the Checkout Pro Access Token (not Point or QR credentials).
-5. Configure interest-free promotions and Mercado Crédito in the
+4. **Restrict to Mercado Pago Accounts** is next to that field and
+   disabled by default, so the preference stays as it is today. Enable it
+   to send ``purpose = "wallet_purchase"``: only buyers logged in to
+   Mercado Pago can pay, and guest checkout, cash and bank transfer are
+   not offered. Saved cards, account money and the installment cap remain
+   available.
+5. Use the Checkout Pro Access Token (not Point or QR credentials).
+6. Configure interest-free promotions and Mercado Crédito in the
    Mercado Pago panel of the same account. Those are not set in Odoo.
 
 Usage
@@ -42,7 +50,11 @@ Usage
 1. Pay a website order (or payment link) with Mercado Pago.
 2. Odoo redirects to Checkout Pro. The customer picks the payment method
    and the number of installments.
-3. After approval, Odoo confirms the transaction and stores the chosen
+3. If **Restrict to Mercado Pago Accounts** is enabled, Checkout Pro asks
+   the buyer to log in. Guest checkout, cash and bank transfer are not
+   offered there. Saved cards can still be paid in installments, up to
+   the configured cap.
+4. After approval, Odoo confirms the transaction and stores the chosen
    installments on the payment transaction.
 
 Known issues / Roadmap

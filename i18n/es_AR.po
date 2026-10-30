@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* oo_mercado_pago_website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-30 00:00+0000\n"
+"PO-Revision-Date: 2026-10-30 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: oo_mercado_pago_website
+#: model:ir.model.fields,field_description:oo_mercado_pago_website.field_payment_provider__mercado_pago_require_account
+msgid "Restrict to Mercado Pago Accounts"
+msgstr "Restringir a cuentas de Mercado Pago"
+
+#. module: oo_mercado_pago_website
+#: model:ir.model.fields,help:oo_mercado_pago_website.field_payment_provider__mercado_pago_require_account
+msgid ""
+"When enabled, Checkout Pro only accepts buyers logged in to Mercado Pago. "
+"Guest checkout, cash and bank transfer are hidden. Saved cards, account "
+"money and the installment cap remain available. Leave it disabled to keep "
+"the current behavior."
+msgstr ""
+"Si está activo, Checkout Pro solo acepta compradores con sesión iniciada "
+"en Mercado Pago. Se ocultan el pago como invitado, el efectivo y la "
+"transferencia. Las tarjetas guardadas, el dinero en cuenta y el tope de "
+"cuotas siguen disponibles. Dejar desactivado para conservar el "
+"comportamiento actual."

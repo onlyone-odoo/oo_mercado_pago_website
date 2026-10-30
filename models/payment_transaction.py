@@ -15,9 +15,13 @@ class PaymentTransaction(models.Model):
     )
 
     def _mercado_pago_prepare_preference_request_payload(self):
-        """Override of `payment_mercado_pago` to allow Checkout Pro installments.
+        """Override of `payment_mercado_pago` to tune the Checkout Pro preference.
 
-        The native module hard-codes ``payment_methods.installments`` to 1.
+        The native module hard-codes ``payment_methods.installments`` to 1
+        and does not set ``purpose``. ``purpose`` is a top-level preference
+        attribute, so requiring a logged-in account does not replace
+        ``payment_methods`` or any other native key. It is omitted unless
+        the provider asks for it, which keeps the current payload.
         """
         payload = super()._mercado_pago_prepare_preference_request_payload()
         if self.provider_code != "mercado_pago":
@@ -25,6 +29,8 @@ class PaymentTransaction(models.Model):
         payload.setdefault("payment_methods", {})[
             "installments"
         ] = self.provider_id._get_mercado_pago_max_installments()
+        if self.provider_id.mercado_pago_require_account:
+            payload["purpose"] = "wallet_purchase"
         return payload
 
     def _process_notification_data(self, notification_data):

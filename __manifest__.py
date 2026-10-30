@@ -3,13 +3,13 @@
 
 {
     "name": "Mercado Pago Website Installments",
-    "summary": "Offer Mercado Pago Checkout Pro installments on website payments",
+    "summary": "Checkout Pro installments and optional Mercado Pago account checkout",
     "author": "Be OnlyOne",
     "maintainers": ["onlyone-odoo"],
     "website": "https://onlyone.odoo.com/",
     "license": "AGPL-3",
     "category": "Accounting/Payment Providers",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "development_status": "Production/Stable",
     "application": False,
     "installable": True,
